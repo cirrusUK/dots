@@ -1,0 +1,441 @@
+#                 ██      
+#                ░██      
+#  ██████  ██████░██      
+# ░░░░██  ██░░░░ ░██████  
+#    ██  ░░█████ ░██░░░██ 
+#   ██    ░░░░░██░██  ░██ 
+#  ██████ ██████ ░██  ░██ 
+# ░░░░░░ ░░░░░░  ░░   ░░  
+#
+#  ▓▓▓▓▓▓▓▓▓▓
+# ░▓ author ▓ cirrus <cirrus@archlinux.info>
+# ░▓ code   ▓ https://gist.github.com/cirrusUK
+# ░▓ mirror ▓ http://cirrus.turtil.net
+# ░▓▓▓▓▓▓▓▓▓▓
+# ░░░░░░░░░░
+#
+#█▓▒░ 
+
+[[ $- = *i* ]] || return
+[ -r /etc/profile.d/cnf.sh ] && . /etc/profile.d/cnf.sh 
+export  BROWSER="${${DISPLAY+firefox}:-w3m}" 
+export  TERM="xterm"
+export  ABSROOT="$HOME/build" 
+export  EDITOR="nano" 
+export  HISTFILE=/home/cirrus/.logs/zhistory
+export  HISTFILESIZE=10000
+export  HISTSIZE=${HISTFILESIZE}
+export  HISTIGNORE="&:[ ]*:exit:ls:bg:fg:cd:pacsyy:pacsu:history:clear"           
+export  PAGER="less" 
+export  SUDO_PROMPT="Password: " 
+export  IPLAYER_OUTDIR="/mnt/INT2/video/pvr" 
+export  MUTT_EDITOR="nano" 
+export  MOZ_USE_OMTC=1 
+export  LIBVA_DRIVER_NAME=vdpau
+export  VDPAU_DRIVER=r600
+export  SSH_KEY_PATH="~/.ssh/dsa_id" 
+export  ARCHFLAGS="-arch x86_64"  
+export  LC_ALL="en_GB.UTF-8"             # Use British English...
+export  LANG="en_GB.UTF-8"               # ...as default language.
+export  TZ="Europe/London"         # Force our time zone this location.
+export VIRTUAL_ENV="/home/cirrus/venv"
+#export PATH="$VIRTUAL_ENV/bin:$PATH"
+export  CHEATCOLORS="true"
+export SOCCER_CLI_API_TOKEN="0e479074171240a282136de60497dec9"
+#
+# SLRN
+export NNTPSERVER='news.gmane.org'
+#toilet -f mono12 --gay --w 100 Arch
+#alsi -c1=red -c2=blue -t red
+#fortune | ponysay
+#command cowsay -f tux $(fortune all)
+cat /etc/motd
+echo "Hello \e[1;37m\e[0;35m$USER.\e[0;51m"
+echo "Today is \e[31m$(date)\e[0;51m"
+echo -e "\033[1mCurrent working directory. \033[0;35m$(pwd)\e[0;51m"
+echo "\e[0;44m \e[0;47m \e[0;46m "
+source ~/.config/functions.zsh
+source ~/.config/alias.zsh
+source ~/.config/command-not-found.zsh
+#Powerline & oh-my-zsh config.
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="powerline"
+source $ZSH/oh-my-zsh.sh
+POWERLINE_FULL_CURRENT_PATH=true
+COMPLETION_WAITING_DOTS=true
+plugins=( git ant colorize)
+DISABLE_UPDATE_PROMPT=true
+DISABLE_AUTO_UPDATE=true
+#
+# Menu completion
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' rehash yes
+#
+autoload -Uz colors \
+             compinit \
+             promptinit \
+             edit-command-line \
+             run-help \
+             zmv
+compinit
+promptinit
+colors
+#
+setopt autocd \
+       complete_aliases \
+       glob_dots \
+       extended_history \
+       hist_verify \
+       hist_ignore_all_dups \
+       hist_save_no_dups \
+       hist_ignore_space \
+       hist_reduce_blanks \
+       inc_append_history \
+       interactive_comments \
+       numeric_glob_sort \
+       no_bg_nice \
+       print_exit_value \
+       prompt_subst \
+       notify
+       
+
+# jump around
+. /home/cirrus/scripts/z/z.sh
+#
+#
+#define path
+PATH=$PATH:/usr/lib/cw:/home/cirrus/.gem/ruby/2.3.0/bin:/home/cirrus/.bin:/usr/lib/surfraw:/home/cirrus/venv/bin
+export PATH="/usr/lib/cw:$PATH"
+# needs to be at the bottom, or completion will break highlighting.
+#source /home/cirrus/scripts/cc.zsh
+source /home/cirrus/scripts/zsh-syntax-highlighting-filetypes.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh   
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+!  __  ___ __ ___  ___  ___  _   _ _ __ ___ ___  ___ 
+!  \ \/ / '__/ _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|
+! _ >  <| | |  __/\__ \ (_) | |_| | | | (_|  __/\__ \
+!(_)_/\_\_|  \___||___/\___/ \__,_|_|  \___\___||___/
+!                                                    
+
+!## Colors
+*foreground: rgb:aa/aa/aa
+*background: rgb:00/00/00
+*color0:     rgb:30/34/30
+*color1:     rgb:bf/79/79
+*color2:     rgb:97/b2/6b
+*color3:     rgb:cd/cd/c1
+*color4:     rgb:86/a2/be
+*color5:     rgb:d9/b7/98
+*color6:     rgb:a1/b5/cd
+*color7:     rgb:ff/ff/ff
+*color8:     rgb:cd/b5/cd
+*color9:     rgb:f4/a4/5f
+*color10:    rgb:c5/f7/79
+*color11:    rgb:ff/ff/ef
+*color12:    rgb:98/af/d9
+*color13:    rgb:d7/d9/98
+*color14:    rgb:a1/b5/cd
+*color15:    rgb:de/de/de
+!##xterm
+xterm*faceName: iosevka-term:size=10:antialias=false
+xterm*font: 7x13
+xterm*faceSize: 10
+xterm*dynamicColors: true
+xterm.geometry: 29x13+0+0
+xterm*eightBitInput: true
+xterm*saveLines: 512
+xterm*scrollKey: true
+xterm*scrollTtyOutput: true
+xterm*scrollBar: false
+xterm*rightScrollBar: false
+xterm*jumpScroll: false
+xterm*multiScroll: true
+xterm*toolBar: false
+XTerm*locale: true
+!*foreground: #7a7a7a
+!## teh URxvt stuff
+URxvt.font : -*-fixed-*-*-*-12-*-*-*-*-*-*-*
+URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
+URxvt.perl-ext-common:  default,tabbedex,clipboard
+URxvt.url-launcher:      /usr/bin/firefox
+URxvt.matcher.button:   1
+URxvt.keysym.C-Delete:  perl:matcher:last
+URxvt.keysym.M-Delete:  perl:matcher:list
+URxvt.colorUL: #4682B4
+urxvt.geometry:          154x115
+URxvt.borderless:        true
+urxvt*scrollBar:         false
+URxvt.scrollBar_right : False
+URxvt.scrollBar_floating : False
+URxvt.scrollstyle : plain
+URxvt*color12: rgb:5c/5c/ff
+!## teh transparency stuff
+URxvt.inheritPixmap: true
+URxvt.tintColor: white
+URxvt.shading: 40
+URxvt.background: #191919
+URxvt.foreground: #7a7a7a
+URxvt*highlightColor:        #cb4b16   
+URxvt*highlightTextColor:    #000000        
+!## teh dpi stuff
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.autohint: 0
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+xft:Primary:style=Book:size=8,xft:Droid Sans Fallback:style=Regular,    
+!## rofi
+rofi.opacity: 85
+rofi.width: 1024
+rofi.lines: 7
+rofi.columns: 4 
+rofi.font: PragmataPro 10
+rofi.bw: 1
+rofi.color-enabled: true
+rofi.color-window: #191919, #cb4b16, #268bd2
+rofi.color-normal: #191919, #7a7a7a, #191919, #268bd2, #ffffff
+rofi.color-active: #191919, #268bd2, #191919, #cb4b16, #268bd2
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+rofi.location: 6
+rofi.padding: 2
+rofi.yoffset: -50
+rofi.xoffset: 0
+rofi.fixed-num-lines: true
+rofi.hmode: false
+rofi.terminal: termite
+rofi.ssh-set-title: true
+rofi.disable-history: false
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+#!/bin/sh
+#blade
+# ~/.xinitrc
+#
+# Executed by startx (run your window manager from here)
+setxkbmap gb
+xsetroot -cursor_name left_ptr
+xset -dpms
+xset s off
+export LIBVA_DRIVER_NAME=vdpau
+export VDPAU_DRIVER=r600
+#export  BROWSER="/home/cirrus/.config/piper"
+export  BROWSER=Firefox
+userresources=$HOME/.Xresources
+sysresources=/etc/X11/xinit/.Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+if [ -d /etc/X11/xinit/xinitrc.d ]; then
+  for f in /etc/X11/xinit/xinitrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi
+#xset +fp /usr/share/fonts/local/
+##Autostarts
+#
+compton --config ~/.compton.conf -b &
+mpg123 /mnt/INT2/strek/Popup.mp3 && termite &
+xset -dpms; xset s off  &
+sh ~/scripts/.fehbg &
+sh ~/scripts/dzen.sh &
+#tabbed -c vimb -e &
+tickr &
+conky | while read -r; do xsetroot -name  "$REPLY"; done &
+#conky -c ~/.config/i3/.conkyrcbar &
+sleep 4 &
+notify-send -h string:bgcolor:#000000 -h string:fgcolor:#54ff44 -i ~/.icons/48arch.png 'OS- Archlinux x86_64' 'Installed on 
+Tue Jun 17 2014 at 01:36:26' &
+firefox &
+xbindkeys &
+sh ~/scripts/blame.sh &
+#tint2 &
+terminator &
+subl &
+#trayer --widthtype request --expand true  --monitor primary --height 18  --alpha 235 --edge bottom --align right --distance 
+30 --SetDockType true &
+tilda &
+pasystray &
+rss-notify &
+orage &
+notify-send  -h string:bgcolor:#000000 -h string:fgcolor:#ff4444 -i ~/.icons/48arch.png 'Archlinux x86_64 ONLINE' 'Cirrus Is 
+On The Bridge' &
+mpg123 /mnt/INT2/strek/start.mp3  &
+#sh /usr/share/android-notifier-desktop/run.sh &
+##WM
+#exec awesome
+#exec twm
+#exec i3
+#exec fvwm
+exec dwm
+#exec spectrwm
+
+
+---------------------------------------------------------------------------------------------------------------------------
+
+    #  ██████████ ████     ████ ██     ██ ██     ██
+    # ░░░░░██░░░ ░██░██   ██░██░██    ░██░░██   ██
+    #     ░██    ░██░░██ ██ ░██░██    ░██ ░░██ ██
+    #     ░██    ░██ ░░███  ░██░██    ░██  ░░███
+    #     ░██    ░██  ░░█   ░██░██    ░██   ██░██
+    #     ░██    ░██   ░    ░██░██    ░██  ██ ░░██
+    #     ░██    ░██        ░██░░███████  ██   ░░██
+    #     ░░     ░░         ░░  ░░░░░░░  ░░     ░░
+    #
+    #  ▓▓▓▓▓▓▓▓▓▓
+    # ░▓ author ▓ cirrus <cirrus@archlinux.info>
+    # ░▓ code   ▓ https://gist.github.com/cirrusUK
+    # ░▓ mirror ▓ http://cirrus.turtil.net
+    # ░▓▓▓▓▓▓▓▓▓▓
+    # ░░░░░░░░░░
+    # Copyright 2012 Cirrus Minor. All rights reserved.
+    #
+    # Redistribution and use in source and binary forms, with or without modification, are
+    # permitted provided that the following conditions are met:
+    #
+    #    1. Redistributions of source code must retain the above copyright notice, this list of
+    #       conditions and the following disclaimer.
+    #    2. Redistributions in binary form must reproduce the above copyright notice, this list
+    #             of conditions and the following disclaimer in the documentation and/or other materials
+    #        provided with the distribution.
+    #
+    # THIS SOFTWARE IS PROVIDED BY Cirrus Minor ''AS IS'' AND ANY EXPRESS OR IMPLIED
+    #       WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+    # FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL Cirrus Minor OR
+    # CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+    # CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+    # SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+    # ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+    # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    # All the following colours are supported: black, red, green, yellow, blue, magenta, cyan, white, default, bright, bold, 
+dim, 
+    # The views and conclusions contained in the software and documentation are those of the
+    # authors and should not be interpreted as representing official policies, either expressed
+    # or implied, by Cirrus Minor.
+
+    ################
+    ## .tmux.conf ##
+    #unbind C-b
+    set -g prefix C-a
+    set -g @plugin 'tmux-plugins/tmux-copycat'
+
+    # generalized startup stuff
+    #-----------------------------------------------
+    set -g default-command zsh 
+    set -g default-terminal screen-256color
+    set -g set-remain-on-exit  on
+    set -g remain-on-exit on
+    set -g base-index 1    
+    #set -g default-command "${SHELL}"
+    
+    # Mouse (tmux > = 2.1)
+    #-------------------------------------------------
+
+    # Allows scrolling and selecting in copy-mode
+    # pleb mode
+    set -g  mouse on
+    set -g history-limit 30000
+
+    # Enable mouse copy-mode scrolling
+    bind-key -T root WheelUpPane   if-shell -F -t = "#{alternate_on}" "send-keys -M" "select-pane -t =; copy-mode -e; 
+send-keys -M"
+    bind-key -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "send-keys -M" "select-pane -t =; send-keys -M"
+
+    # Enable fast scrolling with Ctrl
+    bind-key -T root C-WheelUpPane if-shell -F -t = "#{alternate_on}" "send-keys -M" "select-pane -t =; copy-mode -e; 
+send-keys -M"
+    #bind-key -T root C-WheelDownPane if-shell -F -t = "#{alternate_on}" "send-keys -M" "select-pane -t =; copy-mode -e; 
+send-keys -M"
+    bind-key -t vi-copy C-WheelUpPane   halfpage-up
+    bind-key -t vi-copy C-WheelDownPane halfpage-down
+
+    # Make mouse-drag work only with Ctrl
+    #unbind -T root MouseDrag1Pane
+    #unbind -t vi-copy MouseDrag1Pane
+    #bind-key -n C-MouseDrag1Pane if -Ft= '#{mouse_any_flag}' 'if -Ft= \"#{pane_in_mode}\" \"copy-mode -M\" \"send-keys -M\"' 
+'copy-mode -M'
+    #bind-key -t vi-copy C-MouseDrag1Pane begin-selection
+
+    # Toggle mouse on/off
+    #bind-key m set-option -g mouse on \; display 'Mouse: ON'
+    #bind-key M set-option -g mouse off \; display 'Mouse: OFF'
+ 
+    # Look & Feel
+    #-----------------------------------------------
+
+    # Statusbar properties
+    set -g display-time 5000
+    set -g status-bg default
+    set -g status-fg black
+    #set -g window-status-current-format "#[bg=blue,fg=black] Session #S ❮|:#W|#h:#T|❯ "
+
+    # pane divider color; non active pane
+    set -g pane-border-fg colour244
+    set -g pane-border-bg default
+
+     # pane divider color; active pane
+    # helps when you have more than two panes.
+    set -g pane-active-border-fg colour166
+    set -g pane-active-border-bg default
+       
+
+    # window notifications; display activity on other window
+    set -g monitor-activity on
+    set -g visual-activity on
+    
+    # statusbar colors
+    set -g status-fg white
+    set -g status-bg default
+    set -g status-attr default
+     
+    # window title colors; non active
+    set -g window-status-fg colour166
+    set -g window-status-bg default
+    set -g window-status-attr dim
+     
+    # window title colors; active
+    set -g window-status-current-fg colour38
+    set -g window-status-current-bg default
+    #set -g window-status-current-attr bright
+        
+    # urlscan as context and url view
+    bind-key u capture-pane \; save-buffer /tmp/tmux-buffer \; \
+    new-window -n "urlscan" '$SHELL -c "urlscan  < /tmp/tmux-buffer"'
+  
+    # urlview as context and url view
+    bind-key U capture-pane \; save-buffer /tmp/tmux-buffer \; \
+    new-window -n "urlview" '$SHELL -c "urlview  < /tmp/tmux-buffer"'
+    
+  
+    # Titles
+    set -g set-titles on
+    #set -g set-titles-string "#T"
+    set -g status-justify centre
+    set -g automatic-rename on
+
+    #tmux messages
+    set -g message-bg default
+    set -g message-fg yellow
+    
+    #statusbar & external scripts
+    #-----------------------------------------------------
+    set -g status on
+    #set -g status-interval 2
+    set -g status-left-length 200
+    set -g status-right-length 180
+    #set -g status-left '#(rainbarf)'
+    set -g status-left " #(~/tmux-powerline/powerline.sh left)"
+    #set-option -g status-left "#[fg=green]Session: #S #[fg=yellow]#I #[fg=cyan]#P"
+    #set -g status-right "#(~/tmux-powerline/powerline.sh right)"
+    set -g status-right "#[fg=colour255]#(cat  /home/cirrus/.cache/i3blocks/notification  | grep BODY | cut -c 6-) 
+#[bg=36,fg=yellow]◀ %H:%M #[default] "
+    run-shell ~/scripts/tmux-open/open.tmux
+    run-shell ~/scripts/tmux-copycat/copycat.tmux
+
+------------------------------------------------------END--------------------------------------------------------------------
+
+
