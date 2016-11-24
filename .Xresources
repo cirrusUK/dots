@@ -1,6 +1,42 @@
-xterm*faceName: Dejavu Sans Mono:style=Book:antialias=true:hinting=medium
+!  __  ___ __ ___  ___  ___  _   _ _ __ ___ ___  ___ 
+!  \ \/ / '__/ _ \/ __|/ _ \| | | | '__/ __/ _ \/ __|
+! _ >  <| | |  __/\__ \ (_) | |_| | | | (_|  __/\__ \
+!(_)_/\_\_|  \___||___/\___/ \__,_|_|  \___\___||___/
+!                                                    
+!## Colors
+!#include ".config/colors/default-dark"
+!#include ".config/colors/gotham-dark"
+!#include ".config/colors/grayscale-dark"
+!#include ".config/colors/grayscale-light"
+!#include ".config/colors/monochrome-light"
+!#include ".config/colors/mono-light"
+!#include ".config/colors/shiro-dark"
+!#include ".config/colors/white-light"
+!
+*foreground: rgb:aa/aa/aa
+*background: rgb:00/00/00
+*color0:     rgb:30/34/30
+*color1:     rgb:bf/79/79
+*color2:     rgb:97/b2/6b
+*color3:     rgb:cd/cd/c1
+*color4:     rgb:86/a2/be
+*color5:     rgb:d9/b7/98
+*color6:     rgb:a1/b5/cd
+*color7:     rgb:ff/ff/ff
+*color8:     rgb:cd/b5/cd
+*color9:     rgb:f4/a4/5f
+*color10:    rgb:c5/f7/79
+*color11:    rgb:ff/ff/ef
+*color12:    rgb:98/af/d9
+*color13:    rgb:d7/d9/98
+*color14:    rgb:a1/b5/cd
+*color15:    rgb:de/de/de
+!##xterm
+xterm*faceName: iosevka-term:size=10:antialias=false
+xterm*font: 7x13
 xterm*faceSize: 10
 xterm*dynamicColors: true
+xterm.geometry: 29x13+0+0
 xterm*eightBitInput: true
 xterm*saveLines: 512
 xterm*scrollKey: true
@@ -16,13 +52,12 @@ XTerm*locale: true
 URxvt.font : -*-fixed-*-*-*-12-*-*-*-*-*-*-*
 URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
 URxvt.perl-ext-common:  default,tabbedex,clipboard
-!URxvt.url-launcher:      /usr/bin/firefox
-URxvt.url-launcher:  /home/cirrus/.config/piper
+URxvt.url-launcher:      /usr/bin/firefox
 URxvt.matcher.button:   1
 URxvt.keysym.C-Delete:  perl:matcher:last
 URxvt.keysym.M-Delete:  perl:matcher:list
 URxvt.colorUL: #4682B4
-urxvt.geometry:          75x55
+urxvt.geometry:          154x115
 URxvt.borderless:        true
 urxvt*scrollBar:         false
 URxvt.scrollBar_right : False
@@ -44,7 +79,7 @@ Xft.rgba:       rgb
 Xft.autohint: 0
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-xft:Primary:style=Book:size=8,xft:Droid Sans Fallback:style=Regular:antialias=true    
+xft:Primary:style=Book:size=8,xft:Droid Sans Fallback:style=Regular,    
 !## rofi
 rofi.opacity: 85
 rofi.width: 1024
@@ -63,6 +98,6 @@ rofi.yoffset: -50
 rofi.xoffset: 0
 rofi.fixed-num-lines: true
 rofi.hmode: false
-!rofi.terminal: termite
+rofi.terminal: termite
 rofi.ssh-set-title: true
 rofi.disable-history: false
