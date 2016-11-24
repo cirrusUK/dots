@@ -1,0 +1,68 @@
+xterm*faceName: Dejavu Sans Mono:style=Book:antialias=true:hinting=medium
+xterm*faceSize: 10
+xterm*dynamicColors: true
+xterm*eightBitInput: true
+xterm*saveLines: 512
+xterm*scrollKey: true
+xterm*scrollTtyOutput: true
+xterm*scrollBar: false
+xterm*rightScrollBar: false
+xterm*jumpScroll: false
+xterm*multiScroll: true
+xterm*toolBar: false
+XTerm*locale: true
+!*foreground: #7a7a7a
+!## teh URxvt stuff
+URxvt.font : -*-fixed-*-*-*-12-*-*-*-*-*-*-*
+URxvt.iconFile:    /usr/share/icons/Clarity/scalable/apps/terminal.svg
+URxvt.perl-ext-common:  default,tabbedex,clipboard
+!URxvt.url-launcher:      /usr/bin/firefox
+URxvt.url-launcher:  /home/cirrus/.config/piper
+URxvt.matcher.button:   1
+URxvt.keysym.C-Delete:  perl:matcher:last
+URxvt.keysym.M-Delete:  perl:matcher:list
+URxvt.colorUL: #4682B4
+urxvt.geometry:          75x55
+URxvt.borderless:        true
+urxvt*scrollBar:         false
+URxvt.scrollBar_right : False
+URxvt.scrollBar_floating : False
+URxvt.scrollstyle : plain
+URxvt*color12: rgb:5c/5c/ff
+!## teh transparency stuff
+URxvt.inheritPixmap: true
+URxvt.tintColor: white
+URxvt.shading: 40
+URxvt.background: #191919
+URxvt.foreground: #7a7a7a
+URxvt*highlightColor:        #cb4b16   
+URxvt*highlightTextColor:    #000000        
+!## teh dpi stuff
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.autohint: 0
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+xft:Primary:style=Book:size=8,xft:Droid Sans Fallback:style=Regular:antialias=true    
+!## rofi
+rofi.opacity: 85
+rofi.width: 1024
+rofi.lines: 7
+rofi.columns: 4 
+rofi.font: PragmataPro 10
+rofi.bw: 1
+rofi.color-enabled: true
+rofi.color-window: #191919, #cb4b16, #268bd2
+rofi.color-normal: #191919, #7a7a7a, #191919, #268bd2, #ffffff
+rofi.color-active: #191919, #268bd2, #191919, #cb4b16, #268bd2
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+rofi.location: 6
+rofi.padding: 2
+rofi.yoffset: -50
+rofi.xoffset: 0
+rofi.fixed-num-lines: true
+rofi.hmode: false
+!rofi.terminal: termite
+rofi.ssh-set-title: true
+rofi.disable-history: false
