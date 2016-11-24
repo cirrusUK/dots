@@ -138,4 +138,3 @@ export PATH="/usr/lib/cw:$PATH"
 #source /home/cirrus/scripts/cc.zsh
 source /home/cirrus/scripts/zsh-syntax-highlighting-filetypes.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh   
-
