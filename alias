@@ -1,0 +1,303 @@
+
+#           ▄▄▄▄         ██
+#           ▀▀██         ▀▀
+#  ▄█████▄    ██       ████      ▄█████▄  ▄▄█████▄
+#  ▀ ▄▄▄██    ██         ██      ▀ ▄▄▄██  ██▄▄▄▄ ▀
+# ▄██▀▀▀██    ██         ██     ▄██▀▀▀██   ▀▀▀▀██▄
+# ██▄▄▄███    ██▄▄▄   ▄▄▄██▄▄▄  ██▄▄▄███  █▄▄▄▄▄██
+#  ▀▀▀▀ ▀▀     ▀▀▀▀   ▀▀▀▀▀▀▀▀   ▀▀▀▀ ▀▀   ▀▀▀▀▀▀
+# ░░░░░░ ░░░░░░  ░░   ░░  ░░░░░░ ░░░░░░  ░░   ░░
+#  ▓▓▓▓▓▓▓▓▓▓
+# ░▓ author ▓ cirrus <cirrus@archlinux.info>
+# ░▓ code   ▓ https://gist.github.com/cirrusUK
+# ░▓ mirror ▓ http://cirrus.turtil.net
+# ░▓▓▓▓▓▓▓▓▓▓
+# ░░░░░░░░░░
+
+alias \
+  cp='cp -av' \
+  df='df -Th --total' \
+  #g='git' \
+  gcm='git commit -m' \
+  gco='git checkout' \
+  gd='git diff' \
+  gdh='git diff HEAD' \
+  gg='git pull' \
+  gp='git push' \
+  gst='git status --short --untracked-files' \
+  la='ls -l' \
+  #ls='ls -AFNh --tabsize=0 --color=auto --show-control-chars --group-directories-first' \
+  svim='sudo vim' \
+  ta='tmux attach' \
+  tl='tmux ls'
+  zstyle ':completion:*' menu select
+  setopt HIST_IGNORE_DUPS
+  LS_COLORS='di=0;35' ; export LS_COLORS
+
+###alias
+alias adn="ayadn timeline --scroll"
+alias adnme="ayadn -m me"
+alias adnnp="ayadn -np -l"
+alias adnrt="ayadn -O"
+alias adnsay="ayadn post"
+alias adnstar="ayadn -ST"
+alias adntr="ayadn -tr"
+alias adntv="ayadn -TV -b"
+alias age="sudo dumpe2fs $(mount | grep 'on \/ ' | awk '{print $1}') | grep 'Filesystem created:'"
+alias appsay=" ~/texapp.pl -status=- "
+alias archpkg="sr archpkg"
+alias archwiki="sr archwiki"
+alias aurpkg="sr aur"
+alias awiki="w3m https://wiki.archlinux.org/"
+alias awx="startx /usr/bin/awesome -- -nolisten tcp -br +bs -dpi 96 vt$XDG_VTNR"
+alias bbcip="~/scripts/bbcip.sh"
+alias bb='sudo bleachbit --clean system.cache system.localizations system.trash ; sudo paccache -vrk 2 || return 0'
+alias betty="/home/cirrus/build/betty/main.rb"
+alias blame="systemd-analyze blame"
+alias boot="echotc us && echo '\e[1;32mBoot Time:\e[0m ' | pv -qL 10 && systemd-analyze"
+alias bootmsg="echo -n Boot Messages | pv -qL 10 && sudo journalctl -b | ccze -A"  #boot messages
+alias brexit="tmux detach"
+alias bunny="/home/cirrus/build/bunny/bunny.py"
+alias cap="~/cap"                     #sh script for scrot uploads
+alias capsel="~/capsel"                #sh script scrot -s uploads
+alias c-c="sudo pkgcacheclean -v 1"     #keep last 2 versions of packages
+alias ...='cd ../../../'
+alias cdaur="cd build/aur"  #cd to aur folder
+alias cdd="cd .."    #up 1 dir
+alias ..='cd ..'                       # go up 2 dirs
+alias cdh="cd ~"            #cd to home folder
+alias chgrp='chgrp --preserve-root'
+alias chmod='chmod --preserve-root'
+alias chown='chown --preserve-root'
+alias clbin="curl -v -F 'clbin=<-' https://clbin.com"
+alias clear='clear; echo; echo; seq 1 $(tput cols) | sort -R | spark | ccze -A'
+alias clock="echo '$(date +%T | toilet -f term -F border --gay)'"
+alias cowerd="cower -d"             #cower download <pkg>
+alias coweri="cower -i"             #info
+alias cowers="cower -s"             #search AUR
+alias coweru="cower -u"             #Check for updates in the AUR.
+alias cp='cp -i'
+alias cposhells='echo scp /path/to/file cirrus@thebes.openshells.net:/home/cirrus/public_html | pv -qL 20'
+alias cppi="echo scp file/path cirrus@192.168.1.33:/srv/http | pv -qL 20"
+alias cpuinfo='lscpu'                 #CPU info
+alias cputemp="sensors | awk NR==15 | colrm 30  | toilet -f term -F border --gay"
+alias dclock="dclock -bg black -fg turquoise -led_off black -geometry 114x49"
+alias ddg='sr duckduckgo'
+alias digit="echo dig +short txt archlinux.wp.dg.cx"
+alias disks='echo "╓───── m o u n t . p o i n t s"; echo "╙────────────────────────────────────── ─ ─ "; lsblk -a; echo ""; echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ "; df -h; echo ""; echo "╓───── U.U.I.D.s"; echo "╙────────────────────────────────────── ─ ─ "; lsblk -f;'
+alias dmesg="dmesg | tail"
+alias drives="echo -n '\e[1;32mListing connected drives:\e[0m'  | pv -qL 10 && lsblk -f"     #list hdds, uuids
+alias du="du -h"
+alias empty='echo -n "\e[1;32mTaking out teh trash:\e[0m " | pv -qL 10 && rm -rf /home/cirrus/.local/share/Trash/files'
+alias engage="/mnt/INT2/downloads/dots/scripts/tm9"
+#alias epl=" soccer --time=10 |  sed -n '/EPL/,/LLIGA/p' | sed '$d' "
+#alias epls="  soccer --live |  sed -n '/Premier/,/Spanish/p' | sed '$d'| ccze -A "
+alias errors="echo -n '\e[1;32mJournal Errors:\e[0m ' | pv -qL 10 && journalctl -b -p err | ccze -A"
+alias exit="clear; exit"
+alias fact='wget randomfunfacts.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;"'
+alias finch='~/scripts/finch.sh'
+alias findit="sudo find / -name" #find files
+alias fuck='pkill -9'
+alias fwx="startx /usr/bin/fvwm -- -nolisten tcp -br +bs -dpi 96 vt$XDG_VTNR"
+alias gempurge="gem search --local --no-version | tail -n +3 | xargs gem uninstall --allsudo c"
+#alias gemupd="gem update `gem outdated | cut -d ' ' -f 1` "
+alias google="sr google"
+alias gparted="sudo gparted"      #launch gparted
+alias gpumeminfo='echotc us && echo GPU RAM Information  | pv -qL 10 && cat /var/log/Xorg.0.log | ccze -A'
+alias grep="grep --color=auto"
+alias headlines='~/bbc | pv -qL 10 '
+alias hex='cat /mnt/INT2/txt/colours.txt | ccze -A'
+alias h='history'
+alias hist="history -n 20"    #shell history
+#alias history20="cut -f1 -d" " .bash_history | sort | uniq -c | sort -nr | head -n 20"
+alias i3guide="w3m http://i3wm.org/docs/userguide.html"
+alias i3x="startx /usr/bin/i3 -- -nolisten tcp -br +bs -dpi 96 vt$XDG_VTNR"
+alias im="finch"
+alias imgup="/home/cirrus/.lutim/webapprt-stub"
+#alias iohdd="iostat -d -x -p sda | grep -w 'sda' | awk '{print "Read: "$6 " Write: " $7}' "
+alias iohdd="iostat -x "
+alias iplay="echo -n BBC iPlayer Shell Commands | pv -qL 10 && cat ~/iplayer.txt"
+alias iplayer="echotc us && echo Executing BBC iPlayer | pv -qL 10 && get_iplayer --refresh-exclude="cbeebies,cbbc" --type=tv --refresh"
+alias ipupdate="sudo inadyn --dyndns_system default@no-ip.com -u cirrus1690 -p Rangers100 -a rpi.bounceme.net"
+alias irssigs="irssi -c irc.geekshed.net/"  #irc server
+alias islib='ldconfig -p | grep'       #check if a library is installed?
+alias jukebox='echo -n "\e[1;32mncmpcpp via Rpi  Archlinux server:\e[0m " | pv -qL 20 && ncmpcpp -h 192.168.1.33'
+alias kernelmsg="sudo journalctl -f _TRANSPORT=kernel"    #kernel messages
+alias killcli="echo -n '\e[1;31mStopping tmux session(s)\e[0m' | pv -qL 10 && sudo killall tmux"
+alias killkodi='killall /bin/sh /usr/bin/kodi'
+alias killndata="sudo systemctl stop netdata"
+alias lanfix='sudo ip link set dev enp5s0 down && sudo ip link set dev enp5s0 up '
+alias lastup="echo -e '\e[1;31mLast Upgraded:\e[0m ' ; tac /var/log/pacman.log | grep upgraded | head -n 1 | cut -c 2-17"
+alias listf="ls -F"     #list alphabeticaly
+alias listmod="ls -ltr"    #list modified files
+alias ln='ln -i'
+alias lsaur="echo -n '\e[1;32mListing Installed AUR packages:\e[0m '| pv -qL 20 && pacman -Qqm" #list installed AUR packages
+#alias lsaur="pacman -Qqm" #list installed AUR packages
+alias lsbig1="echo 'listing files by size' | pv -qL 10 && find . -printf '%s %p\n'|sort -nr|head | ccze -A"    #sort files by size
+alias lsbig="echo 'listing files & directories by size' | pv -qL 10 && ls -lSrh | ccze -A"    #sort files dirs by size
+alias lsl='ls -lh'                           #list files, dirs
+alias ls='ls --color=auto'
+alias lsupdates="echo -e '\e[1;32mWaiting Updates:\e[0m '| pv -qL 10 && pacman -Qqu --dbpath /tmp/checkup-db-cirrus"
+alias makepkgi="makepkg -ci"        #build,install
+alias makepkgsci="makepkg -srci"     #build,getdeps,clean,install,remove buildtime deps
+alias matrix="cmatrix -b"
+alias meminfo="echo -n '\e[1;32mRAM Information:\e[0m ' | pv -qL 10 &&free -m -l -t"        #freeRAM
+#alias meminfo='free -m -l -t'         #freeRAM
+#alias menu='cd "$(ls | dmenu -nb "#100" -nf "#b9c0af" -sb "#000" -sf "#cb4b16" -i)"'
+alias mkdir='mkdir -p -v'
+alias mmap="node ~/build/blessed-contrib/examples/dashboard.js"
+alias mobdro='/usr/bin/chromium --profile-directory=Default --app-id=njkcfeepegfihkdmnnmcfbcddmdjknjl '
+#alias mount='mount |column -t'
+#alias mount='mount |column -t'
+alias mountpi="sshfs -p 22 cirrus@192.168.1.33:/home/cirrus /mnt/rpi"
+alias mounts4="~/scripts/mounts4.sh"
+alias mountsrv="sshfs -p 22 cirrus@192.168.1.33:/srv/http /mnt/pisrv"
+alias mp3dl="cd /mnt/INT2/music && wget -r -A.mp3 "
+alias mpdbotgs="~/scripts/mpdbotgs"
+#alias mpds="mpdscribble"                #launch mpd lastfm scrobbler
+alias mpdsrv='echo -n "MPD Stream via Raspberry Pi  Archlinux server" | pv -qL 20 && mplayer http://192.168.1.33:9001'
+alias mpvg='mpv --profile=pseudo-gui'
+alias mute='pactl set-sink-mute 3 toggle'
+alias mv='mv -i'
+alias myip='~/scripts/ip.sh'
+alias mympd='echo -n "Rpi 🇲🇵🇩 🇸🇪🇷🇻🇪🇷    " | pv -qL 20 && mplayer http://192.168.1.33:9001'
+alias ncmatrix="ncmatrix -I enp5s0 -R red -T yellow"
+alias ndata="sudo systemctl start netdata && xdg-open http://127.0.0.1:8899/"
+alias netlisten='lsof -i -P | grep LISTEN'   #listening ports
+alias news='echotc us && echo "\e[1;32mLaunching Newsbeuter RSS Reader For Command Line:\e[0m " | pv -qL 20 && newsbeuter'          #launch rss feeder
+alias nicklist="cat ~/.irssi/nicklistfifo"
+alias nstat="netstat -p TCP -eWc"             #netstat
+alias nstato="netstat -tuael --numeric-hosts --numeric-ports"   #netstat
+alias ocpcur="ocp-curses"
+alias onedrivelink='onedrive-cli link'
+alias onedrivels='onedrive-cli ls | ccze -A '
+alias onedriveup='onedrive-cli put'
+alias open='xdg-open'
+alias oshells="ssh cirrus@thebes.openshells.net"  #ssh cirrus@167.114.41.203 -p 22
+alias pacachec="pacman -Sc"         #delete pacman cache
+alias pacinfo='echotc us && echo "ᗧ  ᛫ ᛫ ᗣᗣ 🍒 . ᗣ .🍓 . . .ᗣᗣ . . 🍇. . 🍓🍈. .🍒. :\e[1;35m Pacman is showing pkg info:\e[0m  " | pv -qL 20 && sudo pacman -Si'     #show information about a package
+alias pack="~/scripts/pac.sh"
+alias paclistloc="pacman -Qqm"        #list all locally installed pkgs
+alias paclist="sudo pacman -Ql"     #list all files installed by pkg
+alias pacmanlog='tail -n 40 /var/log/pacman.log | ccze -A'    #view  40 entries in pacman log
+alias pacorph="sudo pacman -Qdt"    #list all orphaned packages
+alias pacown="echo -n '\e[1;35m Determine which package owns a file:\e[0m ' | pv -qL 20 && pacman -Qo"        #determine which package owns a file
+alias pacrns="sudo pacman -Rns"  #uninstall package and deps
+alias pacr="sudo pacman -R"      #uninstall one or more package/s
+alias pacss="sudo pacman -Ss"     #search for a package (not AUR)
+alias pacs="sudo pacman -S"         #install package/s
+alias pacsu='echotc us && echo "ᗧ  ᛫ ᛫ ᗣᗣ 🍒 . ᗣ .🍓 . . .ᗣᗣ . . 🍇. . 🍓🍈. .🍒. :\e[1;36m Upgrading installed packages:\e[0m " | pv -qL 20 && sudo pacman -Su '
+alias pacsyu="pacman -Syu"       #update all packages to latest version
+alias pacsyy='echotc us && echo "ᗧ  ᛫ ᛫ ᗣᗣ 🍒 . ᗣ .🍓 . . .ᗣᗣ . . 🍇. . 🍓🍈. .🍒. : \e[1;36mRefreshing Mirrorlist:\e[0m " | pv -qL 20 && sudo pacman -Syy '
+alias pbay="w3m http://proxybay.de/browse/200"
+alias pimpd='echo -n "🇲🇵🇩  Stream via Raspberry Pi  Archlinux Server:" | pv -qL 20 && mplayer http://192.168.1.33:9001'
+alias pingnorton1="echo -n Pinging norton.com... | pv -qL 10 && ~/pping.sh -c 5  198.153.194.1"
+alias pingnorton="echo -n '\e[1;32mPinging norton.com...:\e[0m ' | pv -qL 10 && ~/pping.sh -c 5  198.153.192.1"
+alias pingoogle='echo -n  "\e[1;31mPinging google.com...:\e[0m "  | pv -qL 10 && ~/pping.sh -c 5 google.com'   #ping google
+alias pingpi="echotc us && echo -n 'pinging' && echotc ue && echo ' pi' ... | pv -qL 10 && ~/pping.sh 192.168.1.33 "
+#alias pingpi="ping 192.168.1.33 | ccze -A"
+alias piport="sudo nc -v -n -z -w 1 192.168.1.33 1-9000"
+alias pizza="sleep 10m && echo  🍕 🍕    pizza is done  🍕 🍕    " #shellalert in 10 mins
+alias pkglist="comm -23 <(pacman -Qeq|sort) <(pacman -Qmq|sort) > pkglist.txt"
+alias pms="~/scripts/pms.py"
+alias pong="ping -c 3 www.google.com"
+alias ports='netstat -tulanp'  #netstat
+alias poweroff='mpg123 /mnt/INT2/strek/exit.mp3 && sudo systemctl poweroff -f'  #poweroff
+alias pping="~/pping.sh"
+alias pscpu='echotc us && echo "Top Processes accesing CPU  " | pv -qL 10 && ps auxf | sort -nr -k 3'
+alias psmem='echotc us && echo "Top Processes accesing RAM  " | pv -qL 10 && ps auxf | sort -nr -k 4'
+#alias psmem='ps auxf | sort -nr -k 4' #top process eating memory
+alias ps='ps -eo pid,lstart,pcpu,cmd'
+alias psusage="ps aux  --sort=-%cpu | grep -m 11 -v `whoami`"  #cpu load
+alias pvr="~/get_iplayer.cgi --listen 127.0.0.1 --port 1935"
+alias qtconfig="/usr/lib/qt4/bin/qtconfig" #qtconfig
+alias quote='wget quotability.com -O - 2>/dev/null | grep \<strong\> | sed "s;^.*<i>\(.*\)</i>.*$;\1;" '
+#alias radio="~/scripts/radio"
+alias realtime='journalctl -f -all |  ccze -A'
+alias reboot='espeak "system is rebooting" && sudo systemctl reboot'     #reboot
+alias recterm="echo -n Recording Terminal | pv -qL 10 && asciinema rec"
+alias red1="echo -n  ' \e[1;32mArchLinux SubReddit For Command Line\e[1;32m' | pv -qL 10 && reddit_top -s archlinux"
+alias red="echo -n    Reddit For Command Line | pv -qL 10 && reddit_top"
+alias remirror"/home/cirrus/scripts/reflector.py --country 'United Kingdom' --age 12 --protocol http --sort rate "
+alias rm='rm -i'
+alias root="sudo -i"
+alias rpi='ssh alarmpi'
+alias rss="newsbeuter"
+alias rtupd60=" find / -mtime -1" #updated / 60mins
+alias scrotall='~/scripts/scrot.sh'
+alias scrotsel='~/scripts/scrots.sh'
+alias seeme="mplayer tv://"
+alias serve="cd /mnt/INT2/serve && echo -n localhost python server on port 8080 | python -m http.server 8080"
+alias shotsel="~/shotsel" #upload scrot -s to server
+alias shots="~/shots"     #upload scrot to server
+alias shutdown='mpg123 /mnt/INT2/strek/exit.mp3 && sudo shutdown -h now'   #shutdown
+alias size='du -hs .[^.]* * | sort -h | ccze -A'         #list 10 dir/files by size
+alias sizehome="sudo du -a ~/ | sort -n -r | head -n 10"  #list 10 dir by size
+alias sizevar='sudo du -a /var | sort -n -r | head -n 10' #list 10 dir by size
+alias slideshow='cd /home/cirrus/Pictures/comic | feh -z -D 15'
+alias smemount="smemount "/home/cirrus/sme/" base64-Y2lycnVz:base64a-LWFlcy1VMkZzZEdWa1gxOHpaOHNORFhjc29YSEdWaWRkZE4zVTF2YVZaVEp1eHBWOVBweHJ1VWFpNm5MNWdOVnlwbEdV --server="eu.storagemadeeasy.com" --ct=30"
+alias smeumount="sudo umount /home/cirrus/sme"
+alias snarf='sudo httpry -i enp5s0 | grep /live/ | cut -c 50- | colrm 104'
+alias sounds="~/scripts/pms.py"
+alias sourcebash="source ~/.bashrc"      #source .bashrc
+alias sourcezsh="source ~/.zshrc"      #source .zshrc
+alias space="~/space.sh"
+alias speeddown="echotc us && echo \e[1;32mDisplaying Download Speed Graph\e[0m | pv -qL 10 && speedometer -rx enp5s0"
+alias speedrw="echotc us && echo '\e[1;32mShow R/W speeds:\e[0m ' | pv -qL 10 && dd bs=1000000 count=100 if=/dev/zero of=testfile & speedometer testfile"
+alias speedtest="echotc us && echo '\e[1;32mTest Download & Upload Speeds with option to share results via png file:\e[0m ' | pv -qL 10 && speedtest-cli --share"
+alias speedup="echotc us && echo \e[1;32mDisplaying Upload Speed Graph\e[0m | pv -qL 10 && speedometer -tx enp5s0"
+alias sshcam="cd ~/scripts/sshcam && ./sshcam"
+alias sshkeygen='echo -n "\e[1;32Generating SSH Key:\e[0m " | pv -qL 20 && ssh-keygen -t rsa -C nailzuk@gmail.com'
+alias sshoff="~/scripts/sshoff.sh"
+alias sshon="~/scripts/sshon.sh"
+alias starwars="telnet towel.blinkenlights.nl"   #starwars ascii
+alias streamit="livestreamer -p mpv"
+alias streams='livestreamer-curses'
+alias subs="~/scripts/subscow.sh"
+alias sudoers="sudo EDITOR=nano visudo"
+alias sudo="sudo -i"
+alias supy="supybot /home/cirrus/supybot/cirrusb0t.conf"          #launch supybot
+alias systemdmsg="sudo journalctl /usr/lib/systemd/systemd | ccze -A"
+alias telehack="telnet telehack.com"
+alias tele='/home/cirrus/Desktop/chrome-njkcfeepegfihkdmnnmcfbcddmdjknjl-Default.desktop'
+alias tflix="~/scripts/torrentflix/bin/torrentflix"
+alias time="date +%T | figlet "
+alias tmuxtxt="cat ./tmux"
+alias toprun="ps axo %cpu,%mem,comm |sort -unr| head -n 9" #top processes
+alias topu="top -u cirrus"     #top proc for user
+alias top="vtop --theme cirrus"
+alias tpb='~/scripts/tpb.sh'
+alias transoff="sudo systemctl stop transmission"
+alias transon="sudo systemctl start transmission"
+alias trz="transmission-daemon && transmission-remote-cli"
+alias tweet="twitter set 👊 "
+alias twit="earthquake"
+#alias twit="twitter --format ansi  -r -R 60"
+alias twit2="~/scripts/rainbow.sh"
+alias twit3='echotc us && echo  "\e[1;31mLaunching TTytter Twitter Client:\e[0m "   | pv -qL 20 && ttytter -dostream'        #CLI twitter client
+alias twit='echotc us && echo "\e[1;32mLaunching Command Line Twitter Client:\e[0m "   | pv -qL 20 && twitter -r -R 60'      #twitter stream cli
+#alias twit="~/scripts/equake.sh"
+alias umountpi="sudo umount /mnt/rpi"
+alias umounts4="~/scripts/umounts4.sh"
+alias umountsrv="sudo umount /mnt/pisrv"
+alias unetbootin='echo -n  "\e[1;32mLaunching Unetbootin:\e[0m "   | pv -qL 10 && ~/build/unetbootin/src/unetbootin/unetbootin '       #launch unetbootin
+alias units="echotc us && echo '\e[1;32mListing Units:\e[0m ' | pv -qL 10 && systemctl list-units"
+alias upd60="find . -mmin -60" #updated currentdir 60mins
+alias uptime="echo '$(uptime | toilet -f term -F border --gay)'"
+alias usage='du -ch | grep total'
+#alias userlist='cat /etc/passwd |grep "/bin/bash" |grep "[5-9][0-9][0-9]" |cut -d: -f1'
+alias uuid="echotc us && echo '\e[1;32mListing UUID:\e[0m ' | pv -qL 10 && ls /dev/disk/by-uuid/ -alh"
+alias vimb='tabbed -c vimb -e'
+alias vi="vim"
+alias vod="gsearch site:vodlocker.com"
+#alias vod="w3m http://vodlocker.com"
+alias weebit='bitlbee -F -u cirrus  && weechat-curses'
+alias wee='echotc us && echo "\e[1;32mLaunching Weechat IRC Command Line Client:\e[0m " | pv -qL 20 && weechat-curses'              #launch weechat
+alias wee2='echotc us && echo "\e[1;32mLaunching Weechat IRC Command Line Client:\e[0m " | pv -qL 20 && weechat -d /mnt/INT2/.weechat'
+alias wego1="wego | head -n 7"
+alias wget='wget -c'
+alias wikip="wikipediaSearch"
+alias xeyes="xeyes -bg black -center green -fg blue -geometry 114x49"
+alias ytdl="youtube-viewer -d"                  #youtube-viewer download -[URL]
+alias ytv="~/scripts/ytv.sh"
+alias zshcfg="leafpad ~/.zshrc"
